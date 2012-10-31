@@ -1,0 +1,941 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="DC.language" content="en" />
+
+<title>Vocal Codes</title>
+
+<style>
+</style>
+<script language="JavaScript">
+function setTimer() {
+timer=setTimeout("setCheckTime()",1200000);
+}
+function clearTimer() {
+clearTimeout(timer)
+}
+function setCheckTime()
+{
+ if(is_chrome || is_safari)
+	 $.jStorage.set("loginId", "id=");
+ else
+    document.cookie="id="; 	
+ 		 
+ window.location.replace("../pages/index.html");
+}
+</script>
+</head>
+
+<body onclick="clearTimer();setTimer();" onload="onload()" onkeypress="onKeyPress(event)">
+<script language="JavaScript">
+setTimer()
+</script>
+<script src="http://code.jquery.com/jquery.min.js"></script>
+<script src="https://raw.github.com/andris9/jStorage/master/jstorage.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.3.3/underscore-min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/backbone.js/0.9.2/backbone-min.js"></script>
+
+<script src="http://code.jquery.com/jquery-1.8.0.min.js"></script>
+<script src="https://raw.github.com/andris9/jStorage/master/jstorage.js"></script>
+<script src="../javascript/header.js"></script>
+
+
+<link rel="stylesheet" media="all" type="text/css"
+	href="http://code.jquery.com/ui/1.8.21/themes/start/jquery-ui.css" />
+<link href="../styles/login.css" rel="stylesheet" type="text/css" />	
+<link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" />
+<link href="../styles/bootstrap-responsive.min.css" rel="stylesheet" />
+<link href="../styles/jasny-bootstrap.css" rel="stylesheet" />
+<!-- jquery : don't change this order -->
+
+
+<!-- ready -->
+
+<script src="http://code.jquery.com/ui/1.9.0/jquery-ui.min.js"></script>
+<script
+	src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.1.1/bootstrap.min.js"></script>
+<script src="../javascript/login.js" type="text/javascript" ></script>
+<script type="text/javascript"
+	src="../javascript/loginauthentication.js"></script>
+<!-- bootstrap components -->
+<script src="../javascript/tagit.js"></script>
+<script
+	src="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.1.1/js/i18n/grid.locale-en.js"
+	type="text/javascript"></script>
+<script
+	src="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.1.1/js/jquery.jqGrid.min.js"
+	type="text/javascript"></script>
+<script type="text/javascript" src="../javascript/jRecorder.js"> </script>
+<script type="text/javascript" src="../javascript/ready.js"></script>
+<script type="text/javascript" src="../javascript/reportfunctions.js"></script>
+<script src="http://code.highcharts.com/highcharts.js"></script>
+<script src="http://code.highcharts.com/modules/exporting.js"></script>
+
+
+
+
+
+
+
+
+
+<link href="../styles/jquery.fileupload-ui.css" rel="stylesheet" />
+
+
+
+<link type="text/css" href="../styles/tagit-stylish-yellow.css"
+	rel="stylesheet" />
+
+<link type="text/css" rel="stylesheet" href="../styles/mapstyle.css" />
+<link rel="stylesheet" type="text/css" href="../styles/style.css" />
+
+
+
+<link rel="stylesheet" type="text/css"
+	href="http://www.ok-soft-gmbh.com/jqGrid/jquery.jqGrid-4.1.1/css/ui.jqgrid.css" />
+<link href="../styles/jasny-bootstrap.css" rel="stylesheet" />
+<link href="../styles/bootstrap-responsive.min.css" rel="stylesheet" />
+<link
+	href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css"
+	rel="stylesheet" />
+
+
+<script>
+$(document).ready(function(){
+
+	 //For Broadcast History
+//	$("#broadcastHistory").addClass("hidden"); 
+	$("#taskLoading").addClass("hidden");
+	$("#taskHeading").addClass("hidden");
+	$("#loading").addClass("hidden");
+	$("#report").addClass("hidden");
+	
+     //For Drill Down
+ //   $("#drillDown").addClass("hidden"); 
+	$("#drillDownLoading").addClass("hidden");
+	$("#drillDownChart").addClass("hidden");
+
+	//For Disabling advance option 
+	$("#broadcastAdvance").addClass("hidden");
+
+
+	$('#reportTab').carousel({ "interval": false });
+
+}); 
+
+</script>
+<div id="loginContainer" style="margin-right: 20%; margin-top: 10%; display: none;">
+	
+  <div id="LoginWindow">
+    <div class="span5"><img
+	src="http://173.201.188.106:8080/vocalimg/images/vclogo.jpg"
+	alt="Vocal Codes" style="height: 80px;" /></div>
+    <p style="font-family: fantasy; font-size: 22px;  margin-top: 60px; height: 2px"><font color="#FFFFFF"></font></p>
+    
+		<div>
+        <ul>
+        <li style="display:table; ">
+          <div class="field"> <span class="leftspace">Username:</span>
+            <input class="login-field" name="uname" type="text" id="username" />
+          </div>
+        </li>
+        <li style="display:table;">
+          <div class="field"> <span class="leftspace">Password:</span>
+            <input class="login-field" name="pass" type="password" id="password"/>
+          </div>
+        </li>
+		<li style="display:table;">
+			<div style="margin-left:350px;">
+				<a href="#" class="btn btn-inverse" id="login">login</a>
+			</div>
+			
+		</li>
+      </ul>
+	  
+	 </div>
+ 
+    <div id="errorMsg"></div>
+  </div>
+  
+</div>
+<div class="span11" id="vcContainer" style="display: none;">
+<div id="header" class="row">
+<div class="span5"><img
+	src="http://173.201.188.106:8080/vocalimg/images/vclogo.jpg"
+	alt="Vocal Codes" style="height: 80px;" /></div>
+<div class="span5" align="right" style="height: 80px;">
+<button type="submit" class="btn btn-primary" style="margin-top: 5%"
+	name="signOut" id="signOut"><i class="icon-white icon-user"></i>
+Sign out</button>
+<div><span class="label">Login As :</span> <span
+	class="label label-important"><script type="text/javascript">
+			document.write(role)
+		</script></span></div>
+</div>
+
+</div>
+<div class="tabbable">
+<ul class="nav nav-tabs">
+	<li class="active"><a href="#tabs1-pane1" data-toggle="tab">Broadcast</a></li>
+	<li><a href="#tabs1-pane2" data-toggle="tab">Report</a></li>
+	<li id="settingTab"><a href="#tabs1-pane3" data-toggle="tab">Settings</a></li>
+	<li id="mapTab"><a href="#tabs1-pane4" data-toggle="tab">Map</a></li>
+</ul>
+<div class="tab-content">
+<div class="tab-pane active" id="tabs1-pane1">
+
+<div class="tab-margin"><script type="text/javascript"
+	src="../javascript/taggit.js"></script>
+<div class="span8" style="min-height: 50px; max-height: auto;">
+
+
+<div class="span2"><a href="#ClientInfo/for/clientinfo"
+	class="btn dropdown-toggle" id="fromanch">From <span class="caret"></span>
+</a>
+<ul class="dropdown-menu" id="fromul">
+</ul>
+</div>
+
+<div class="span4" style="margin-left: -5%;">
+<ul id="fromulselect"></ul>
+
+</div>
+</div>
+<div class="span10" style="min-height: 50px; max-height: auto;">
+<div class="span2"><a class="btn dropdown-toggle" id="toanch"
+	href="#CallList"> To <span class="caret"></span> </a>
+<ul class="dropdown-menu" id="toul">
+
+</ul>
+</div>
+<div class="span4" style="margin-left: -5%;">
+<ul id="demo31"></ul>
+
+</div>
+</div>
+
+<script type="text/javascript"
+	src="../javascript/components/modules/broadcastScheduler.js"></script>
+
+<div class="span7"><!--<legend style="margin-left: 30px;"> </legend>-->
+<div class="row-fluid">
+<div class="span4 offset1">
+<div class="btn-group" ><a
+	class="btn dropdown-toggle" data-toggle="dropdown"  id="pickScheduleAnch"> Pick to schedule
+<span class="caret"></span> </a>
+<ul class="dropdown-menu" id="pickScheduleUl">
+<!-- dropdown menu links -->
+	<li><a tabindex="-1" href="#">Action</a></li>
+	<li><a tabindex="-1" href="#">Another action</a></li>
+	<li><a tabindex="-1" href="#">Something else here</a></li>
+	<li class="divider"></li>
+	<li><a tabindex="-1" href="#">Separated link</a></li>
+</ul>
+</div>
+</div>
+
+<div class="span4"> <div class="btn-group" ><a class="btn dropdown-toggle"
+	data-toggle="dropdown" href="#"> Pick a Message <span class="caret"></span>
+</a>
+<ul class="dropdown-menu" >
+	<!-- dropdown menu links -->
+	<li><a tabindex="-1" href="#">Action</a></li>
+	<li><a tabindex="-1" href="#">Another action</a></li>
+	<li><a tabindex="-1" href="#">Something else here</a></li>
+	<li class="divider"></li>
+	<li><a tabindex="-1" href="#">Separated link</a></li>
+</ul>
+</div></div>
+
+
+</div>
+<div class="span5" style="margin-top: 10px"><!--<legend></legend> -->
+<div class="span3" style="min-height: 180px;"><input type="image"
+	src="http://173.201.188.106:8080/vocalimg/images/MicrophoneHot.png"
+	title="Click to record with mic" style="width: 40px; height: 30px;"
+	id="recordwithmic" /> <input type="image"
+	src="http://173.201.188.106:8080/vocalimg/images/tti-multi-part-upload.png"
+	id="excelupload" title="Click to Upload a File"
+	style="width: 40px; height: 30px;" />
+
+<div class="span4" id="audio_recording" style="display: none;"><applet
+	code="recorder.CapturePlayback.class" archive="AppletRecorder.jar"
+	width="260" height="200"> <script type="text/javascript">
+			document.write("<param name='url'  value='prod'/><param name='loginUserId'  value="+loginUserId+"/>") </script>
+</applet></div>
+
+<!-- Dont remove the below div(id="audio_recording") until you know what you are doing -->
+
+<!--<div class="span4" id="audio_recording" style="display: none;">
+<fieldset style="border:yellow; border-width: 3px;"><legend><b><font style="font-family: fantasy; font-style: oblique">Audio Recording</font></b></legend>
+<div style="background-color: #eeeeee; border: 1px solid #cccccc"
+	align="center">Time: <span id="time">00:00</span></div>
+
+
+<div>Level: <span id="level"></span></div>
+
+<div id="levelbase"
+	style="width: 200px; height: 20px; background-color: #ffff00">
+
+<div id="levelbar"
+	style="height: 19px; width: 2px; background-color: red"></div>
+
+</div>
+
+<div>
+<span id="status"> </span>
+<table align="center">
+	<tr>
+		<td><a href="#" class="btn btn-danger" id="record"> Record</a></td>
+		<td><a href="#" class="btn btn-danger" id="stop"> Stop</a></td>
+		<td><a href="#" class="btn btn-danger" id="send"> Send Data</a> <input type="hidden" id="audio"
+			value="audio" /></td>
+	</tr>
+</table>
+<script type="text/javascript" src="../javascript/recorder/recorder.js"> </script>
+</div>
+</fieldset>
+</div>
+-->
+<div class="span5" id="excel_uploading" style="display: none;">
+<fieldset><!--<legend>Upload File</legend>
+-->
+<div class="span5 offset1"><script type="text/javascript">
+			document.write("<form id='fileupload' action='"+urlForServer+"Upload/file/"+loginUserId+"/"+gcLoginUserId+"' method='post' enctype='multipart/form-data'>")
+		</script> <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
+<div class="row fileupload-buttonbar">
+<div class="span5"><!-- The fileinput-button span is used to style the file input field as button -->
+<span class="btn btn-success fileinput-button" id="uadd" rel="tooltip"
+	data-original-title="first tooltip"> <i
+	class="icon-plus icon-white"></i> <span>Add</span> <input type="file"
+	name="files[]" multiple="" /> </span>
+<button type="submit" class="btn btn-primary start" id="uupload"
+	rel="tooltip" data-original-title="first tooltip"><i
+	class="icon-upload icon-white"></i> <span>Upload</span></button>
+
+<button type="reset" class="btn btn-warning cancel" id="ucancel"
+	rel="tooltip" data-original-title="first tooltip"><i
+	class="icon-ban-circle icon-white"></i> <span>Cancel</span></button>
+<button type="button" class="btn btn-danger delete" id="udelete"
+	rel="tooltip" data-original-title="first tooltip"><i
+	class="icon-trash icon-white"></i> <span>Delete</span></button>
+<input type="checkbox" class="toggle" /></div>
+<!-- The global progress information -->
+<div class="span4 fileupload-progress fade"><!-- The global progress bar -->
+<div class="progress progress-success progress-striped active"
+	role="progressbar" aria-valuemin="0" aria-valuemax="100">
+<div class="bar" style="width: 0%;"></div>
+</div>
+<!-- The extended global progress information -->
+<div class="progress-extended">&nbsp;</div>
+</div>
+</div>
+<!-- The loading indicator is shown during file processing -->
+<div class="fileupload-loading"></div>
+<br />
+<!-- The table listing the files available for upload/download -->
+<table role="presentation" class="table table-striped">
+	<tbody class="files" data-toggle="modal-gallery"
+		data-target="#modal-gallery"></tbody>
+</table>
+<script type="text/javascript">document.write("</form>")</script></div>
+<!-- modal-gallery is the modal dialog used for the image gallery -->
+<div id="modal-gallery" class="modal modal-gallery hide fade"
+	data-filter=":odd">
+<div class="modal-header"><a class="close" data-dismiss="modal">×</a>
+<h3 class="modal-title"></h3>
+</div>
+<div class="modal-body">
+<div class="modal-image"></div>
+</div>
+<div class="modal-footer"><a class="btn modal-download"
+	target="_blank"> <i class="icon-download"></i> <span>Download</span>
+</a> <a class="btn btn-success modal-play modal-slideshow"
+	data-slideshow="5000"> <i class="icon-play icon-white"></i> <span>Slideshow</span>
+</a> <a class="btn btn-info modal-prev"> <i
+	class="icon-arrow-left icon-white"></i> <span>Previous</span> </a> <a
+	class="btn btn-primary modal-next"> <span>Next</span> <i
+	class="icon-arrow-right icon-white"></i> </a></div>
+</div>
+<!-- The template to display files available for upload --> <script
+	id="template-upload" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-upload fade">
+        <td class="preview"><span class="fade"></span></td>
+        <td class="name"><span>{%=file.name%}</span></td>
+        <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+        {% if (file.error) { %}
+            <td class="error" colspan="2"><span class="label label-important">{%=locale.fileupload.error%}</span> {%=locale.fileupload.errors[file.error] || file.error%}</td>
+        {% } else if (o.files.valid && !i) { %}
+            <td>
+                <div class="progress progress-success progress-striped active" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><div class="bar" style="width:0%;"></div></div>
+            </td>
+            <td class="start">{% if (!o.options.autoUpload) { %}
+                <button id="uploadbtn" class="btn btn-primary" rel="tooltip" data-original-title="Upload file">
+                    <i class="icon-upload icon-white"></i>
+                    
+                </button>
+            {% } %}</td>
+        {% } else { %}
+            <td colspan="2"></td>
+        {% } %}
+        <td class="cancel">{% if (!i) { %}
+            <button id="cancel" class="btn btn-warning" rel="tooltip" data-original-title="Cancel">
+                <i class="icon-ban-circle icon-white"></i>
+                
+            </button>
+        {% } %}</td>
+    </tr>
+{% } %}
+</script> <!-- The template to display files available for download --> <script
+	id="template-download" type="text/x-tmpl">
+{% for (var i=0, file; file=o.files[i]; i++) { %}
+    <tr class="template-download fade">
+        {% if (file.error) { %}
+            <td></td>
+            <td class="name"><span>{%=file.name%}</span></td>
+            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td class="error" colspan="2"><span class="label label-important">Upload success</span> </td>
+        {% } else { %}
+            <td class="preview">{% if (file.thumbnail_url) { %}
+                <a href="{%=file.url%}" title="{%=file.name%}" rel="gallery" download="{%=file.name%}"><img src="{%=file.thumbnail_url%}"></a>
+            {% } %}</td>
+            <td class="name">
+                <a href="{%=file.url%}" title="{%=file.name%}" rel="{%=file.thumbnail_url&&'gallery'%}" download="{%=file.name%}">{%=file.name%}</a>
+            </td>
+            <td class="size"><span>{%=o.formatFileSize(file.size)%}</span></td>
+            <td colspan="2"></td>
+        {% } %}
+        <td class="delete">
+            <button id="remove" class="btn btn-danger" data-type="{%=file.delete_type%}" data-url="{%=file.delete_url%}" rel="tooltip" data-original-title="Remove file">
+                <i class="icon-trash icon-white"></i>
+                
+            </button>
+            <input type="checkbox" name="delete" value="1">
+        </td>
+    </tr>
+{% } %}
+</script><!--
+ <script type="text/javascript"
+	src="../javascript/components/fileupload/jquery.ui.widget.js"></script>
+--><script type="text/javascript"
+	src="../javascript/tmpl.min.js"></script> <script
+	type="text/javascript"
+	src="../javascript/load-image.min.js"></script> <script
+	type="text/javascript"
+	src="../javascript/canvas-to-blob.min.js"></script>
+
+<script type="text/javascript"
+	src="../javascript/jquery.iframe-transport.js"> </script>
+<script type="text/javascript"
+	src="../javascript/jquery.fileupload.js"> </script>
+<script type="text/javascript"
+	src="../javascript/jquery.fileupload-fp.js"> </script>
+<script type="text/javascript"
+	src="../javascript/jquery.fileupload-ui.js"> </script>
+	
+	
+<script type="text/javascript"
+	src="../javascript/main.js"> </script></fieldset>
+<script type="text/javascript" src="../javascript/upload/upload.js"> </script>
+</div>
+
+</div>
+</div>
+</div>
+
+
+<div class="span5" style="height: 40px"><input
+	class="btn btn-primary" id="broadcastSubmit" value="Submit"
+	type="submit"> <input class="btn btn-primary" value="Cancel"
+	type="submit"></div>
+
+<div class="modal hide fade" id="myModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header"><span id="modalheaderinfo"></span>
+<button type="button" class="close" data-dismiss="modal"
+	aria-hidden="true">&times;</button>
+
+</div>
+<div id="modal-body" class="modal-body"><span id="modal-body-span">
+<span id="spaninfo"></span></span></div>
+<div class="modal-footer" id="modalfooter"></div>
+</div>
+</div>
+
+</div>
+
+<div class="tab-pane" id="tabs1-pane2">
+<div id="reportTab" class="carousel slide" >
+
+
+
+<div class="tab-margin">
+
+
+
+
+<!-- Broadcast Table  -->
+
+<div class="active item" >
+<div class="span6 offset1">
+<div id="broadcastHistory">
+<div class="offset1">
+<h3 style="color: #0B3861; font-family: Cooper Black;">Broadcast History report</h3>
+</div>
+<form class="form-horizontal">
+<fieldset>
+<div class="span6">
+<div class="control-group" align="left"><label
+	class="control-label">Generate report for :</label>
+
+
+<div class="controls"><!-- Inline Radios --> 
+<label
+	class="radio inline"> <input value="singleDay" id="singleDay"
+	name="broadcastReportType" type="radio" > Single day </input> </label> 	 
+	<label
+	class="radio inline"> <input value="advance" id="advance"
+	name="broadcastReportType" type="radio"> Advance</input> </label></div>
+</div>
+</div>
+<div id="broadcastDate" class="span8">
+<div class="control-group" align="left"><label
+	class="control-label">Select Date :</label>
+
+<div class="controls"><input type="text" name="reportDate1"
+	id="reportDate" class="span2"></input>
+<button id="submit" name="submit" type="button" class="btn btn-primary"
+	data-toggle="button">Submit</button>
+<button id="cancel" name="cancel" type="button" class="btn btn-primary"
+	data-toggle="button">Cancel</button>
+</div>
+</div>
+</div>
+<div id="broadcastAdvance" class="span8">
+<div class="control-group" align="left"><label
+	class="control-label">Advance Option:</label>
+
+<div class="controls"><select id="advanceType" name="advanceType" class="span2">
+	<option selected="selected" value="defaultValue">Select</option>
+	<option value="Today">Today</option>
+	<option value="Yesterday">Yesterday</option>
+	<option value="last3Days">Last 3 Days</option>
+	<option value="last7Days">Last 7 Days</option>
+	<option value="currentMonth">Current Month</option>
+</select>
+<button id="submitAdvance" name="submitAdvance" type="button"
+	class="btn btn-primary" data-toggle="button">Submit</button>
+<button id="cancelAdvance" name="cancelAdvance" type="button"
+	class="btn btn-primary" data-toggle="button">Cancel</button>
+</div>
+</div>
+</div>
+</fieldset>
+
+</form>
+<!-- Loading Table  -->
+<div id="taskLoading" align="center">
+<div class="control-group" align="center"><label
+	class="control-label">Processing............!</label>
+
+<div class="controls"><progress id="loadingbar" value="70"
+	max="100" /></div>
+
+</div>
+</div>
+<div align="center" id="taskHeading" class="span10">
+<div id="firstPart" class="span5" align="center">
+<table id="taskTable" align="left"></table>
+<div id="tablePage"></div>
+<br />
+</div>
+
+<div id="secondPart"
+	style="vertical-align: middle; width: 250px; height: 250px;">
+<button id="generateReportBtn" name="submit" type="button"
+	style="vertical-align: -150px;" class="btn btn-primary"
+	data-toggle="button">Get Report</button>
+</div>
+
+</div>
+
+<!-- Processing For Broadcast Report -->
+
+<div id="loading" align="center">
+<div class="control-group" align="center"><label
+	class="control-label">Processing............!</label>
+
+<div class="controls"><progress id="loadingbar" value="70"
+	max="100"></progress></div>
+
+</div>
+</div>
+
+<!-- Loading Broadcast Report -->
+<div id="report" align="left" class="span10"><br />
+<label class="control-label">Broadcast History Summary</label> <br />
+<table id="list2" align="left" width="1200"></table>
+<br />
+<table id="list2" align="left" width="1200"></table>
+<br />
+<table id="list3" align="left" width="1200"></table>
+<br />
+<table id="list4" align="left" width="1200"></table>
+<br />
+<table id="list5" align="left" width="1200"></table>
+<br />
+<table id="list6" align="left" width="1200"></table>
+<br />
+<table id="list7" align="left" width="1200"></table>
+<br />
+<table id="list8" align="left" width="1200"></table>
+
+<br />
+</div>
+
+<!-- End Of Broadcast Report --></div>
+</div>
+</div>
+
+<!-- DrillDown Report -->
+<div class="item">
+<div class="span6 offset1">
+
+<div id="drillDown">
+
+<div class="offset2">
+<h3 style="color: #0B3861; font-family: Cooper Black;">DrillDown report</h3>
+</div>
+
+<form class="form-horizontal">
+<fieldset>
+
+<div class="span8">
+<div class="control-group" align="left"><label
+	class="control-label">Select Month and Year :</label>
+
+<div class="controls "><select id="drillDownYear"
+	name="drillDownYear" class="span2" >
+	<option selected="selected" value="defaultYear">Select Year</option>
+	<option value="2010">2010</option>
+	<option value="2011">2011</option>
+	<option value="2012">2012</option>
+	<option value="2013">2013</option>
+	<option value="2014">2014</option>
+	<option value="2015">2015</option>
+	<option value="2016">2016</option>
+</select> <select id="drillDownMonth" name="drillDownMonth" class="span2">
+	<option selected="selected" value="defaultMonth">Select Month</option>
+	<option value="01">01</option>
+	<option value="02">02</option>
+	<option value="03">03</option>
+	<option value="04">04</option>
+	<option value="05">05</option>
+	<option value="06">06</option>
+	<option value="07">07</option>
+	<option value="08">08</option>
+	<option value="09">09</option>
+	<option value="10">10</option>
+	<option value="11">11</option>
+	<option value="12">12</option>
+</select></div>
+</div>
+<div class="control-group" align="left"><label
+	class="control-label">Chart Type :</label>
+
+<div class="controls"><select id="chartType" name="chartType" class="span2">
+	<option selected="selected" value="defaultValue">Select Type</option>
+	
+	<option value="Line">Line</option>
+	<option value="Column">Column</option>
+	<option value="Bar">Bar</option>
+</select>
+<button id="submit1" name="submit" type="button" class="btn btn-primary"
+	data-toggle="button">Submit</button>
+<button id="cancel1" name="cancel" type="button" class="btn btn-primary"
+	data-toggle="button">Cancel</button>
+</div>
+</div>
+</div>
+
+</fieldset>
+
+</form>
+
+<!-- DrillDown Loading -->
+<div id="drillDownLoading" align="center">
+<div class="control-group" align="center"><label
+	class="control-label">Processing............!</label>
+
+<div class="controls"><progress id="loadingbar" value="70"
+	max="100"></progress></div>
+
+</div>
+</div>
+
+<!-- DrillDown Chart -->
+<div id="drillDownChart" align="left" class="span10">
+
+<div id="container" style="width: 820px; height: 500px;" align="center">
+<br />
+</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<!-- End Of Main Report Tags--></div>
+<a class="carousel-control left"
+	href="#reportTab" data-slide="prev">&lsaquo;</a> <a
+	class="carousel-control right" href="#reportTab" data-slide="next">&rsaquo;</a>
+
+
+</div>
+
+
+
+</div>
+
+<script type="text/javascript"
+	src="../javascript/components/modules/settings.js"> </script>
+<div class="tab-pane" id="tabs1-pane3" style="margin-left: 2%"><!--<object id="settingsPage" type="text/html"  width="940px;" style="min-height:400px; max-height : auto;margin-left: 2%"></object>-->
+<div class="modal hide fade" id="brdModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header" id="broadcastheader">
+<button type="button" class="close" data-dismiss="modal"
+	aria-hidden="true">&times;</button>
+<span id="header-span"></span></div>
+<div id="modal-body" class="modal-body">
+<div class="row"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>
+<span id="errorSpan" style="color: red"></span></div>
+<div class="row"><!-- Search input-->
+<div class="span3"><label class="control-label">Broadcast
+Description</label></div>
+<div class="span3"><input placeholder="enter broadcast name"
+	class="input-xmedium search-query" type="text" id="bgDescription" />
+<p class="help-block"></p>
+</div>
+</div>
+<div class="row"><!-- Search input-->
+<div class="span3"><label class="control-label">Message
+Audio File</label></div>
+<div class="span3"><input placeholder="enter audio file name"
+	class="input-xmedium search-query" type="text" id="messageAudioFile" />
+<p class="help-block"></p>
+</div>
+
+</div>
+</div>
+<div class="modal-footer" id="broadcastBtns">
+<button class="btn" id="brdSubmit" aria-hidden="true">Submit</button>
+<button class="btn" id="brdUpdate" aria-hidden="true">Update</button>
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+</div>
+</div>
+
+<div class="modal hide fade" id="clientModal" tabindex="-1"
+	role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header" id="clientinfoheader">
+<button type="button" class="close" data-dismiss="modal"
+	aria-hidden="true">&times;</button>
+<span id="clientheader-span"></span></div>
+<div id="modal-body" class="modal-body">
+<div class="row"><span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;</span>
+<span id="clienterrorSpan" style="color: red"></span></div>
+<div class="row"><!-- Search input-->
+<div class="span3"><label class="control-label">Caller
+Name</label></div>
+<div class="span3"><input placeholder="enter caller name"
+	class="input-xmedium search-query" type="text" id="clientName" />
+<p class="help-block"></p>
+</div>
+</div>
+<div class="row"><!-- Search input-->
+<div class="span3"><label class="control-label">Caller Id</label></div>
+<div class="span3"><input placeholder="enter caller id"
+	class="input-xmedium search-query" type="text" id="callerId" />
+<p class="help-block"></p>
+</div>
+
+</div>
+</div>
+<div class="modal-footer" id="clientinfoBtns">
+<button class="btn" id="clientinfoSubmit" aria-hidden="true">Submit</button>
+<button class="btn" id="clientinfoUpdate" aria-hidden="true">Update</button>
+<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+</div>
+</div>
+
+<div class="modal hide fade" id="msgModal" tabindex="-1" role="dialog"
+	aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal-header">
+<button type="button" class="close" data-dismiss="modal"
+	aria-hidden="true">&times;</button>
+<span id="msg-header-span"></span></div>
+<div id="msg-modal-body" class="modal-body"><span
+	id="modal-message"></span></div>
+<div class="modal-footer">
+<button class="btn" data-dismiss="modal" aria-hidden="true"
+	id="schedulefooterbtn">Close</button>
+</div>
+</div>
+
+<div class="span9">
+<div id="myCarousel" class="carousel slide" ><!-- Carousel items -->
+<div>
+<div class="active item">
+<div class="span6 offset1">
+<div class="offset2">
+<h2 style="color: #0B3861; font-family: Cooper Black;">Broadcast</h2>
+</div>
+<ul class="nav nav-pills">
+	<li class="active"><a href="#">View</a></li>
+	<li><a href="#" id="create">Create</a></li>
+</ul>
+<div class="accordion" id="accordion2"></div>
+
+<!--<div id="right"><input type="text" id="example17"></div>
+-->
+<div>Need to add option btns an check boxes</div>
+</div>
+
+</div>
+<div class="item">
+<div class="span6 offset1">
+<div class="offset2">
+<h2 style="color: #0B3861; font-family: Cooper Black;">Client Info</h2>
+</div>
+<ul class="nav nav-pills">
+	<li class="active"><a href="#">View</a></li>
+	<li><a href="#" id="client_info">Create</a></li>
+</ul>
+
+<div>Need to add option btns an check boxes</div>
+</div>
+
+</div>
+<div class="item">
+<div class="span6 offset1">
+<div class="offset2">
+<h2 style="color: #0B3861; font-family: Cooper Black;">Messages</h2>
+</div>
+<ul class="nav nav-pills">
+	<li class="active"><a href="#">View</a></li>
+	<li><a href="#">Create</a></li>
+</ul>
+<div class="row-fluid">
+<div id="accordion3" class="span4">
+
+<ul class="nav nav-pills  nav-stacked">
+	<li style="width: 150px"><a href="#">Message1</a></li>
+
+	<li style="width: 150px"><a href="#">Message2</a></li>
+
+	<li style="width: 150px"><a href="#">Message3</a></li>
+
+	<li style="width: 150px"><a href="#">Message4</a></li>
+
+	<li style="width: 150px"><a href="#">Message5</a></li>
+
+	<li style="width: 150px"><a href="#">Message6</a></li>
+
+
+</ul>
+</div>
+<div class="span3"
+	style="min-height: 180px; margin-left: 10; padding-left: 19px; border-left: 1px solid #eee;">
+
+<input type="image"
+	src="http://173.201.188.106:8080/vocalimg/images/MicrophoneHot.png"
+	title="Click to record with mic" style="width: 40px; height: 30px;"
+	id="settingsrecordwithmic" />
+<div class="span4" id="setting_audio_recording" style="display: none;"><applet
+	code="recorder.CapturePlayback.class" archive="AppletRecorder.jar"
+	width="260" height="200"> <script type="text/javascript">
+			document.write("<param name='url'  value='prod'/><param name='loginUserId'  value="+loginUserId+"/>") </script>
+</applet></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Carousel nav --> <a class="carousel-control left"
+	href="#myCarousel" data-slide="prev">&lsaquo;</a> <a
+	class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+</div>
+</div>
+
+</div>
+
+<div class="tab-pane" id="tabs1-pane4">
+<div class="tab-margin">
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/" />
+<!--<link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/themes/ui-lightness/jquery-ui.css" />-->
+<!--<link type="text/css" rel="stylesheet" href="../styles/map/css/960/min/960.css" />
+		<link type="text/css" rel="stylesheet" href="../styles/map/css/960/min/960_16_col.css" />-->
+<!--<link type="text/css" rel="stylesheet" href="../styles/map/css/normalize/min/normalize.css" />-->
+<!--<link type="text/css" rel="stylesheet" href="../styles/map/css/prettify/min/prettify.css" />-->
+
+<!--<script type="text/javascript" src="../javascript/modernizr.min.js"></script>-->
+<div class="container_16"><article class="grid_16">
+<div class="item rounded dark">
+<div id="map_canvas" class="map rounded"></div>
+<div id="dialog"></div>
+</article></div>
+<script type="text/javascript"	src="http://maps.google.com/maps/api/js?sensor=false"></script> 
+<script	type="text/javascript" src="../javascript/map/demo.js"></script> 
+<script	type="text/javascript" src="../javascript/map/jquery.ui.map.min.js"></script>
+<script type="text/javascript"	src="../javascript/map/jquery.ui.map.services.min.js"></script>
+<script type="text/javascript"	src="../javascript/map/polygon.min.js"></script>
+
+<script	type="text/javascript">
+            $(function() { 
+				demo.add(function() {
+					$('#map_canvas').gmap({ 'disableDefaultUI':true, 'callback': function(map) {
+						var creator = new PolygonCreator(map);
+						//reset
+						 $('#reset').click(function(){ 
+						 		creator.destroy();
+						 		creator=null;
+						 		$('#dataPanel').empty();
+						 		creator=new PolygonCreator(map);
+						 });		 
+						 //show paths
+						 $('#showData').click(function(){ 
+						 		$('#dataPanel').empty();
+						 		if(null==creator.showData()){
+						 			$('#dataPanel').append('Please first create a polygon');
+						 		}else{
+						 			$('#dataPanel').append(creator.showData());
+						 		}
+						 });						
+					}});
+				}).load();
+			});
+        </script>
+	
+	<div id="side" class="span10">
+	<div class="span4">
+		<input id="reset" value="Reset" type="button" class="btn btn-primary"/>
+		<input id="showData"  value="Show Polygon Data" type="button" class="btn btn-primary"/>
+		</div>
+		<div  class="span5" id="dataPanel">
+		</div>
+	</div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<!--/widget-->
+</body>
+</html>

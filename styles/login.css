@@ -1,0 +1,128 @@
+*
+{
+	margin: 0px;
+	padding: 0px;
+}
+OL, UL
+{
+	list-style: none;
+}
+#Container
+{
+	width: 100%;
+	margin-top: 12%;
+}
+#LogoM
+{
+	padding: 0 20px 20px;
+	width: 321px;
+	height: 33px;
+	margin-left: -6px;
+}
+#LoginWindow
+{
+	width: 500px;
+	background-color: #404040;
+	clear: both;
+	overflow: hidden;
+	padding: 15px 5px 15px 10px;
+	margin-left: auto;
+	margin-right: auto;
+	border: 4px solid #EAEAEA;
+	min-height: 300px;
+	border-color : #404040;
+	vertical-align: middle;
+	border-top-right-radius: 26px;
+	border-top-left-radius: 26px;
+	border-bottom-right-radius: 26px;
+	border-bottom-left-radius: 26px;
+}
+.field
+{
+	margin: 5px 0 0 15px;
+	margin-left: 20px;
+}
+#LoginWindow P
+{
+	width: 594px;
+	font: normal normal 12px Tahoma, Geneva, Verdana;
+	padding-bottom: 50px;
+	margin-left: 15px;
+	width: 330px;
+}
+#login UL
+{
+	margin-top: 17px;
+}
+#login LI
+{
+	margin-top: -6px;
+}
+.leftspace
+{
+	margin: 0 10px;
+	top: 10px;
+	font-family: "Helvetica Neue",Helvetica,"Nimbus Sans L",Arial,"Liberation Sans",sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	
+	letter-spacing: 0.1em;
+	color: #FFFFFF;
+}
+INPUT#username
+{
+	margin-left: 16px;
+}
+INPUT#password
+{
+	margin-left: 16px;
+}
+.login-field
+{
+	margin-bottom: 8px;
+	margin-top: 2px;
+	width: 250px;
+	height: 21px;
+}
+.topspace
+{
+	margin-top: 17px;
+	margin-left: 10px;
+}
+#errorMsg
+{
+	position: absolute;
+	top: 226px;
+	display: none;
+}
+#errorMsg P
+{
+	width: 235px;
+	margin: 1px 0 0 25px;
+	font-size: 9pt;
+}
+#loginBtn
+{
+	float: right;
+	margin-right: 23px;
+	margin-top: 10px;
+	border: none !important;
+}
+.center
+{
+margin-top:auto;
+margin-bottom:auto;
+height:70%;
+}
+.decor1 {
+    background-image: url("http://173.201.188.106:8080/vocalimg/img/vmwarePeel.png");
+    background-repeat: no-repeat;
+    border-top-right-radius: 26px;
+    height: 102px;
+    overflow: hidden;
+    position: absolute;
+    right: 421px;
+    top: 164px;
+    width: 103px;
+	
+}
